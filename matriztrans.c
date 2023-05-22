@@ -1,29 +1,38 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-// F=filas;C=Columnas;M=Matriz
-void ImpresionMatriz(int **M, int f, int c)
-{
-    for (int  i = 0; i < f; i++)
-    {
-        for (int j = 0; j < c; j++)
-        {
-            printf("%i\t",M[i][j]);
+
+void imprimirMatriz(int **matriz, int filas, int columnas) {
+    for (int i = 0; i < filas; i++) {
+        for (int j = 0; j < columnas; j++) {
+            printf("%d\t", matriz[i][j]);
         }
         printf("\n");
     }
-    return 0;
 }
-int **MatrizTranspuesta(int**M,int f, int c)´
-{
-    int **Mt=(int**)malloc(f*sizeof(int*));
+
+int** generarMatrizInversa(int **matriz, int filas, int columnas) {
+    int **matrizInversa = (int**)malloc(filas * sizeof(int*));
+    for (int i = 0; i < filas; i++) {
+        matrizInversa[i] = (int*)malloc(columnas * sizeof(int));
+    }
+
+    for (int i = 0; i < filas; i++) {
+        for (int j = 0; j < columnas; j++) {
+            matrizInversa[i][j] = matriz[j][i];
+        }
+    }
+
+    return matrizInversa;
 }
-int main()
-{
-    int f, int c;
-    printf("Ingrese el numero de filas");
-    scanf("%i", &f);
-    printf("Ingrese el numero de columnas");
-    scanf("%i", &c);
-    return 0;
+int main() {
+    int filas, columnas;
+
+    printf("Ingrese el número de filas de la matriz: ");
+    scanf("%d", &filas);
+
+    printf("Ingrese el número de columnas de la matriz: ");
+    scanf("%d", &columnas);
+
+   
 }
